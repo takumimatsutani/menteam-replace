@@ -21,33 +21,62 @@
                 min-height: 100vh;
                 margin: 0;
             }
-            @media (prefers-color-scheme: dark) {
+            /* @media (prefers-color-scheme: dark) {
                 body {
                     background-color: #0a0a0a;
                     color: #f3f4f6;
                 }
-            }
+            } */
         </style>
+        @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
     </head>
     <body>
-        <div class="max-w-4xl mx-auto text-center p-6">
-            <h1 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 1.5rem;">Welcome to {{ config('app.name', 'Laravel') }}</h1>
+        <div class="flex flex-col items-center justify-center w-full max-w-3xl p-6 bg-color-gray-50">
+            <div class="text-center mb-8">
+                <h1 class="text-5xl font-black font-['Noto_Sans_JP'] leading-tight text-color-gray-900 mb-4">MENTEAM</h1>
+                <h2 class="text-2xl font-semibold font-['Hiragino_Kaku_Gothic_Pro'] leading-tight text-color-gray-900">ログイン</h2>
+            </div>
             
-            <div style="margin-top: 2rem;">
-                @if (Route::has('login'))
-                    <div style="display: flex; gap: 1rem; justify-content: center;">
-                        @auth
-                            <a href="{{ url('/dashboard') }}" style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none;">Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}" style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none;">Login</a>
-                            
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" style="border: 1px solid #d1d5db; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none;">Register</a>
-                            @endif
-                        @endauth
+            <div class="w-full max-w-md">
+                <div class="mb-6">
+                    <div class="mb-1">
+                        <label class="text-base font-semibold font-['Hiragino_Kaku_Gothic_Pro'] leading-tight text-color-gray-900">メールアドレス</label>
                     </div>
-                @endif
+                    <div class="relative">
+                        <input type="email" placeholder="メールアドレス" class="w-full h-12 px-4 py-3 bg-color-gray-0 rounded-lg border border-color-gray-300 text-base font-light font-['Hiragino_Kaku_Gothic_Pro']">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="mb-1">
+                        <label class="text-base font-semibold font-['Hiragino_Kaku_Gothic_Pro'] leading-tight text-color-gray-900">パスワード</label>
+                    </div>
+                    <div class="relative">
+                        <input type="password" placeholder="パスワード" class="w-full h-12 px-4 py-3 bg-color-gray-0 rounded-lg border border-color-gray-300 text-base font-light font-['Hiragino_Kaku_Gothic_Pro']">
+                        <div class="absolute right-3 top-3">
+                            <div class="w-6 h-6 bg-zinc-300 border border-color-gray-100">
+                                <div class="w-5 h-3.5 bg-color-gray-100 border-[0.03px] border-color-gray-100"></div>
+                                <div class="w-4 h-4 rounded-[1px] outline outline-2 outline-offset-[-1px] outline-color-gray-100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-right mb-6">
+                    <a href="#" class="text-xs font-light font-['Hiragino_Kaku_Gothic_Pro'] leading-normal text-blue">パスワードをお忘れですか？</a>
+                </div>
+                
+                <button class="w-full h-12 px-4 py-3 bg-color-primarycolor-500 rounded-lg flex justify-center items-center gap-2.5 mb-6">
+                    <span class="text-center text-color-gray-0 text-base font-semibold font-['Hiragino_Kaku_Gothic_Pro'] leading-snug tracking-wide">ログイン</span>
+                </button>
+                
+                <div class="text-center">
+                    <a href="#" class="text-base font-semibold font-['Hiragino_Kaku_Gothic_Pro'] leading-tight text-blue">新規登録はこちら</a>
+                </div>
             </div>
         </div>
+        
+        <!-- The original commented out code section remains untouched -->
     </body>
 </html>
